@@ -32,3 +32,12 @@ def allocate_seq(request):
         return HttpResponse("No sufficient space available")
     else:
         return HttpResponse('\n'.join(allocation_info),content_type="text/plain")
+
+#allocate-as-per-choice
+def preference(request):
+    #user = request.GET.get('user_id','')
+    rooms = list(Room.objects.filter(user_id__isnull=True).order_by('num'))
+    return render(request,'preference.html',{
+        #variable-mapping
+        'rooms':rooms,
+    })

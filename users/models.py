@@ -7,6 +7,10 @@ class User(models.Model):
     mob = models.CharField(max_length=10)
     email = models.CharField(max_length=90)
     if_allocated = models.BooleanField(default=False)
+    #room-preferences
+    room1 = models.IntegerField(null=True)
+    room2 = models.IntegerField(null=True)
+    room3 = models.IntegerField(null=True)
 
 class Room(models.Model):
     num = models.IntegerField(primary_key=True)
