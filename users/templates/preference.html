@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Choose Preference</title>
+    </head>
+    <script>
+        function dupli(){
+            var room1 = document.getElementById('room1').value;
+            var room2 = document.getElementById('room2').value;
+            var room3 = document.getElementById('room3').value;
+            if (room1 == room2 || room1 == room3 || room2 == room3){
+                alert("Please give unique choices!");
+            }
+        }
+    </script>
+    <body>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p>Choice 1 </p>
+            <br>
+
+            <select id="room1">
+                {% for room in rooms %}
+                <option value={{room.num}}>{{room.num}}</option>
+                {% endfor %}
+            </select>
+
+
+            <p>Choice 2 </p>
+
+            <select id="room2">
+                {% for room in rooms %}
+                <option value={{room.num}}>{{room.num}}</option>
+                {% endfor %}
+            </select>
+
+            <p>Choice 3 </p>
+
+            <select id="room3">
+                {% for room in rooms %}
+                <option value={{room.num}}>{{room.num}}</option>
+                {% endfor %}
+            </select>
+        <input type="submit" value="Submit" onclick="dupli()">
+        </form>
+    </body>
+</html>
