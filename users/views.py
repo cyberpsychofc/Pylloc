@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import User, Room
+from .forms import Preference
 
 #allocates room sequentially 
 def allocate_seq(request):
@@ -34,10 +35,19 @@ def allocate_seq(request):
         return HttpResponse('\n'.join(allocation_info),content_type="text/plain")
 
 #allocate-as-per-choice
-def preference(request):
-    #user = request.GET.get('user_id','')
+def preference(request, user_pk):
+    #user = request.POST.get('user_id','')
+    user = get_object_or_404(User,pk=user_pk)
     rooms = list(Room.objects.filter(user_id__isnull=True).order_by('num'))
+
+    if (request.method == 'POST'):
+        form = Preference(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = Preference()
     return render(request,'preference.html',{
         #variable-mapping
+        'form':form,
         'rooms':rooms,
     })

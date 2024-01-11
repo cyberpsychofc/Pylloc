@@ -13,12 +13,12 @@
         }
     </script>
     <body>
-        <form method="POST" action="">
+        <form method="POST" action=".">
             {% csrf_token %}
             <p>Choice 1 </p>
             <br>
-
-            <select id="room1">
+            <!-- use name tag for mapping POST fields -->
+            <select id="room1" name="room1">
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
@@ -27,7 +27,7 @@
 
             <p>Choice 2 </p>
 
-            <select id="room2">
+            <select id="room2" name="room2">
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
@@ -35,7 +35,7 @@
 
             <p>Choice 3 </p>
 
-            <select id="room3">
+            <select id="room3" name="room3">
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
