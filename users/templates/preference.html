@@ -10,6 +10,9 @@
             if (room1 == room2 || room1 == room3 || room2 == room3){
                 alert("Please give unique choices!");
             }
+            if (room1 == "" || room2 == "" || room3 == ""){
+                alert("Preferences can't be left blank");
+            }
         }
     </script>
     <body>
@@ -19,6 +22,7 @@
             <br>
             <!-- use name tag for mapping POST fields -->
             <select id="room1" name="room1">
+                <option value="">Select Room 1</option>
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
@@ -28,6 +32,7 @@
             <p>Choice 2 </p>
 
             <select id="room2" name="room2">
+                <option value="">Select Room 2</option>
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
@@ -36,6 +41,7 @@
             <p>Choice 3 </p>
 
             <select id="room3" name="room3">
+                <option value="">Select Room 3</option>
                 {% for room in rooms %}
                 <option value={{room.num}}>{{room.num}}</option>
                 {% endfor %}
