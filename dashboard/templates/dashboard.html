@@ -3,7 +3,6 @@
         <title>Dashboard</title>
         <style>
             .centered-block {
-                position: relative;
                 width: 50px;
                 height: 25px;
                 border: 1px solid black;
@@ -16,7 +15,7 @@
             .contain{
                 position: absolute;
                 top: 50%;
-                left:50%;
+                left:35%;
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);       
             }
@@ -24,11 +23,19 @@
         </head>
         <body>
             <div class="contain">
-                {%for room in rooms %}
-                <div class="centered-block" style="{%if room.user is not None %} background: #ff3300;{% else %} background:#00ff99; color:white; {% endif %}">
-                    <p>{{room.num}}</p>
-                </div>
-                {% endfor %}
+                <table>
+                    {% for room_col in room_mat %}
+                    <tr>
+                        {% for room in room_col %}
+                        <td>
+                            <div class="centered-block" style="{%if room.user is not None %} background: #ff3300;{% else %} background:#00ff99; color:white; {% endif %}">
+                                <p>{{room.num}}
+                            </div> 
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
     </body>
 </html>
