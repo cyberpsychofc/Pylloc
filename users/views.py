@@ -34,12 +34,6 @@ def allocate_seq(request):
     else:
         return HttpResponse('\n'.join(allocation_info),content_type="text/plain")
 
-'''
- The function doesn’t handle the case where a User’s room
- preference is None or where a User’s year is None. Will 
- fix this in later versions.
-'''
-
 #allocate-as-per-choice
 def allocate_apc(request):
     users = User.objects.all().filter(if_allocated=False).order_by('-cgpa')
