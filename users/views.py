@@ -52,8 +52,7 @@ def allocate_apc(request):
             if available_room.num == user.room2 and available_room.user_id is not None:
                 continue
             if available_room.num == user.room3 and available_room.user_id is not None:
-                allocate_seq(request)
-                break
+                continue
             
             if available_room.year == user.year and not user.if_allocated:
                 room = available_room
