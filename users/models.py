@@ -17,7 +17,3 @@ class Room(models.Model):
     year = models.IntegerField()
     # to_field, to change reference of foreign key
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True) 
-
-# class postalloc(models.Model):
-    # Room.num = models.ForeignKey()
-    # User.id = models.ForeignKey()
