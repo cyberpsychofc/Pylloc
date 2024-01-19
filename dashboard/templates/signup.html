@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Sign Up | Register</title>
+    </head>
+    <body>
+        <form method="POST" action=".">
+            {% csrf_token %}
+            Username <input type="text" name="Username">
+            Email <input type="text" name="email"> 
+            Password <input type="text" name="Pass"> 
+            Confirm Password <input type="text" name="ConfirmPass">  
+        </form>
+    </body>
+</html>

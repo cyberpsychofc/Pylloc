@@ -11,3 +11,6 @@ def dashboard(request):
         'rooms':rooms,
         'room_mat':room_mat,
     })
+
+def SignUp(request):
+    return render(request,'signup.html',{})
