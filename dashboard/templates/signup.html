@@ -5,10 +5,8 @@
     <body>
         <form method="POST" action=".">
             {% csrf_token %}
-            Username <input type="text" name="Username">
-            Email <input type="text" name="email"> 
-            Password <input type="text" name="Pass"> 
-            Confirm Password <input type="text" name="ConfirmPass">  
+            {{form}}
+            <input type="submit" value="Sign Up">
         </form>
     </body>
 </html>

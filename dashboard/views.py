@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from users.models import Room
+from .forms import SignUpForm
 
 def dashboard(request):
     rooms = list(Room.objects.order_by('num'))
@@ -13,4 +14,12 @@ def dashboard(request):
     })
 
 def SignUp(request):
-    return render(request,'signup.html',{})
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = SignUpForm
+    return render(request,'signup.html',{
+        'form':form
+    })
