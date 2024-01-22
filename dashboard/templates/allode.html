@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Room Management Dashboard</title>
+    </head>
+    <body>
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Sign Up">
+        </form>
+    </body>
+</html>
